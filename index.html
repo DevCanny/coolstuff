@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cool Stuff LMAO</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <canvas></canvas>
+    <div
+      class="
+        bg-black bg-opacity-30
+        text-center text-white
+        h-screen
+        w-full
+        absolute
+        top-0
+      "
+    >
+      <h1 class="my-8 text-3xl">Crappy Ass Work</h1>
+      <div class="container mx-auto">
+        <div class="w-full rounded-xl px-6 py-3 mb-5 transition duration-300 hover:bg-white cursor-pointer hover:text-black font-bold bg-white bg-opacity-30">
+          <a href="./Irgenii Bolovsorol/index.html">Irgenii Bolovsorol (Assignment_1)</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      var t = 0;
+      var c = document.querySelector("canvas");
+      var $ = c.getContext("2d");
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      $.fillStyle = "hsla(0,0%,0%,1)";
+      window.addEventListener(
+        "resize",
+        function () {
+          c.width = window.innerWidth;
+          c.height = window.innerHeight;
+        },
+        false
+      );
+      function draw() {
+        $.globalCompositeOperation = "source-over";
+        $.fillStyle = "hsla(0,0%,0%,.1)";
+        $.fillRect(0, 0, c.width, c.height);
+        var foo, i, j, r;
+        foo = Math.sin(t) * 2 * Math.PI;
+        for (i = 0; i < 450; ++i) {
+          r = 450 * Math.sin(i * foo);
+          $.globalCompositeOperation = "";
+          $.fillStyle = "hsla(" + i + 12 + ",100%, 60%,1)";
+          $.beginPath();
+          $.arc(
+            Math.sin(i) * r + c.width / 2,
+            Math.cos(i) * r + c.height / 2,
+            1.5,
+            0,
+            Math.PI * 2
+          );
+          $.fill();
+        }
+        t += 0.000005;
+        return (t %= 2 * Math.PI);
+      }
+      function run() {
+        window.requestAnimationFrame(run);
+        draw();
+      }
+      run();
+    </script>
+  </body>
+</html>
