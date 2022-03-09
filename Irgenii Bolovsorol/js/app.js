@@ -1,5 +1,7 @@
 var StuffToChange = document.getElementById("One_Title")
 var StuffToAlt = document.getElementById("One_alt")
+var Intro = new Audio()
+Intro.src = "./intro.mp3"
 var Num = 0
 
 document.addEventListener("keydown", e => {
@@ -13,6 +15,7 @@ document.addEventListener("keydown", e => {
         "sake",
     ]
     if (e.keyCode == 48){
+        Intro.play()
         StuffToChange.innerHTML = "Бусадтай"
         setTimeout(function(){
             StuffToChange.innerHTML = "Бусадтай зөв"
@@ -28,6 +31,7 @@ document.addEventListener("keydown", e => {
         },WaitTime * 4)
         setTimeout(function(){
             StuffToAlt.innerHTML = "haha stinky poopoo lol"
+            Intro.stop()
         },WaitTime * 6)
     } else if(e.keyCode == 57) {
         if(Num == ToShowSlide2.length){return}
