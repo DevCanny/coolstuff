@@ -15,6 +15,7 @@ document.addEventListener("keydown", e => {
         "sake",
     ]
     if (e.keyCode == 48){
+        Intro.currentTime = 5
         Intro.play()
         StuffToChange.innerHTML = "Бусадтай"
         setTimeout(function(){
@@ -31,11 +32,12 @@ document.addEventListener("keydown", e => {
         },WaitTime * 4)
         setTimeout(function(){
             StuffToAlt.innerHTML = "haha stinky poopoo lol"
-            Intro.stop()
         },WaitTime * 6)
     } else if(e.keyCode == 57) {
         if(Num == ToShowSlide2.length){return}
         document.getElementById("Two_Point"+Num).innerHTML = "· " + ToShowSlide2[Num]
         Num++
+    } else if (e.keyCode == 81) {
+        Intro.pause()
     }
 })
